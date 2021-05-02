@@ -5,14 +5,6 @@
           app
           color="black"
           dark>
-        <div align="left" style="max-width: 60px">
-          <v-img
-              class="mx-2"
-              src="../assets/VisitKorea.png"
-              max-height="45"
-              contain
-          ></v-img>
-        </div>
         <div class="d-flex align-baseline">
           <h1>WD-Mall</h1>
         </div>

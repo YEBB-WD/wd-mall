@@ -1,10 +1,25 @@
 <template>
-
+  <div align="center">
+    <best-products></best-products>
+  </div>
 </template>
 
 <script>
+
+import BestProducts from "@/components/products/BestProducts";
+
 export default {
-  name: "Product"
+  name: "Product",
+  components: {
+      BestProducts
+  },
+  data() { return {
+
+  }},
+  methods: {
+
+  }
+
 }
 </script>
 

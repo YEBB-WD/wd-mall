@@ -5,23 +5,20 @@
           app
           color="black"
           dark>
-        <div align="left" style="max-width: 60px">
-          <v-img
-              class="mx-2"
-              src="../assets/VisitKorea.png"
-              max-height="45"
-              contain
-          ></v-img>
-        </div>
+        <v-menu
+            offset-y
+            bottom left
+            v-model="menu"
+            :close-on-content-click="true">
+          <template v-slot:activator="{ on }" >
+            <v-app-bar-nav-icon v-on="on"></v-app-bar-nav-icon>
+          </template>
+        </v-menu>
         <div class="d-flex align-baseline">
           <h1>WD-Mall</h1>
         </div>
         <v-spacer></v-spacer>
         <div v-if="isLogin">
-          <v-btn text @click="$router.push('/visa')">
-            <v-icon>mdi-calendar-check</v-icon>
-            <span>{{$i18n.t('label.visa')}}</span>
-          </v-btn>
           <v-btn text @click="$router.push('/order')" >
             <v-icon>mdi-playlist-plus</v-icon>
             <span>{{$i18n.t('label.order')}}</span>
@@ -87,10 +84,6 @@
           </template>
 
           <v-list>
-            <v-list-item to="/visa" @click="menu = false" dense>
-              <v-list-item-icon><v-icon>mdi-calendar-check</v-icon></v-list-item-icon>
-              <v-list-item-title>{{$i18n.t('label.visa')}}</v-list-item-title>
-            </v-list-item>
             <v-list-item to="/order" @click="menu = false" dense>
               <v-list-item-icon><v-icon>mdi-playlist-plus</v-icon></v-list-item-icon>
               <v-list-item-title>{{$i18n.t('label.order')}}</v-list-item-title>
@@ -110,16 +103,9 @@
           </v-list>
         </v-menu>
 
-        <div align="left" style="max-width: 50px" v-if="false">
-          <v-img
-              class="mx-2"
-              src="../assets/VisitKorea.png"
-              max-height="35"
-              contain
-          ></v-img>
-        </div>
+
         <div class="d-flex align-baseline">
-          <h2>C</h2><h6>ross</h6><h2>B</h2><h6>order</h6><h2>M</h2><h6>anagement</h6>
+          <h3>WD-Mall</h3>
         </div>
         <v-spacer></v-spacer>
         <v-spacer></v-spacer>
