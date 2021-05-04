@@ -8,6 +8,7 @@ import OrderCard from '@/views/OrderCard.vue'
 import OrderSvc from '@/views/OrderSvc.vue'
 import Login from '@/components/Login2.vue'
 import VisaApply from '@/views/VisaApply.vue'
+import ProductDetail from '@/components/products/list/ProductDetail.vue'
 
 Vue.use(VueRouter)
 
@@ -51,6 +52,11 @@ const routes: Array<RouteConfig> = [
     path: '/visa',
     name: 'VisaApply',
     component: VisaApply
+  },
+  {
+    path: '/prdtDetail',
+    name: 'ProductDetail',
+    component: ProductDetail
   },
   {
     path: '/about',
