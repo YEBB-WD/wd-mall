@@ -1,16 +1,16 @@
 <template>
   <div>
     <v-card>
-      <v-row>
-        <v-col cols="5">
-          <v-card align="center">
+      <v-row align="center" justify="center">
+        <v-col cols="10" xs="10" sm="5" md="5">
+          <v-card align="center" flat>
             <v-img
               :src="item.prdt_img"
               contains
               max-width="300"></v-img>
           </v-card>
         </v-col>
-        <v-col cols="7">
+        <v-col cols="10" xs="10" sm="7" md="7">
           <tr>
             <th width="60" align="left">
               <h6> {{ $i18n.t('label.brand_name')}}</h6>
@@ -77,6 +77,16 @@
                 <span style="font-size: small" v-else>({{ numberWithCommas(getTotalPriceKo) }} 원)</span>
               </h1>
             </th>
+          </tr>
+          <tr>
+          <br>
+          <tr>
+            <td width="200" align="right" colspan="3">
+              <v-btn color="blue" dark>
+                Add to cart
+                <v-icon>mdi-cart</v-icon>
+              </v-btn>
+            </td>
           </tr>
         </v-col>
       </v-row>
