@@ -83,7 +83,7 @@
           <tr>
             <td width="200" align="right" colspan="3">
               <v-btn color="blue" dark>
-                Add to cart
+                Add to cart<pre>&nbsp;</pre>
                 <v-icon>mdi-cart</v-icon>
               </v-btn>
             </td>
