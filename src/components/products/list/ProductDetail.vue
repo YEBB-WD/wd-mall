@@ -225,7 +225,6 @@ export default {
     lang: 'zh',
     prdt_quantity: 1,
     quantity_list: [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-
   }},
   methods: {
     isLocalZH() {
