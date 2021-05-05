@@ -2,9 +2,13 @@
   <div align="center">
     <v-card max-width="96%">
       <div class="row">
-        <div class="col-md-3" v-for="(item, index) in prdts" :key="index" v-if="prdts.length() > 0">
+<!--        <div class="col-md-3" v-for="(item, index) in prdts" :key="index" v-if="prdts">
           <product-preview></product-preview>
-        </div>
+        </div>-->
+        <product-preview></product-preview>
+        <product-preview></product-preview>
+        <product-preview></product-preview>
+        <product-preview></product-preview>
       </div>
     </v-card>
   </div>

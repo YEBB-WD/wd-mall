@@ -9,6 +9,8 @@ import OrderSvc from '@/views/OrderSvc.vue'
 import Login from '@/components/Login2.vue'
 import VisaApply from '@/views/VisaApply.vue'
 import ProductDetail from '@/components/products/list/ProductDetail.vue'
+import ProductPreview from "@/components/products/list/ProductPreview.vue";
+import ProductPreviewList from "@/components/products/list/ProductPreviewList.vue";
 
 Vue.use(VueRouter)
 
@@ -57,6 +59,16 @@ const routes: Array<RouteConfig> = [
     path: '/prdtDetail',
     name: 'ProductDetail',
     component: ProductDetail
+  },
+  {
+    path: '/prdtPrev',
+    name: 'ProductPreview',
+    component: ProductPreview
+  },
+  {
+    path: '/prdtPrevList',
+    name: 'ProductPreviewList',
+    component: ProductPreviewList
   },
   {
     path: '/about',

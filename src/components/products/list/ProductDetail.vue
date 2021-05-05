@@ -1,17 +1,30 @@
 <template>
   <div>
     <v-card>
+      <v-row align="left">
+        <v-col cols="1"></v-col>
+        <v-col cols="10">
+          <tr>
+            <th align="left">
+              <h4> {{ item.prdt_brand }}</h4>
+            </th>
+          </tr>
+          <tr align="left">
+              <h2> {{ item.prdt_name }}</h2>
+          </tr>
+        </v-col>
+      </v-row>
       <v-row align="center" justify="center">
         <v-col cols="10" xs="10" sm="5" md="5">
           <v-card align="center" flat>
             <v-img
               :src="item.prdt_img"
               contains
-              max-width="300"></v-img>
+              max-width="350"></v-img>
           </v-card>
         </v-col>
         <v-col cols="10" xs="10" sm="7" md="7">
-          <tr>
+<!--          <tr>
             <th width="60" align="left">
               <h6> {{ $i18n.t('label.brand_name')}}</h6>
             </th>
@@ -27,7 +40,7 @@
               <h4> {{ item.prdt_name }}</h4>
             </th>
           </tr>
-          <br>
+          <br>-->
           <tr>
             <th width="60" align="left">
               <h6>{{ $i18n.t('label.prdt_price')}}</h6>
@@ -127,6 +140,7 @@ export default {
       types: Object,
       default: {
         prdt_img: 'http://image.ssgdfm.com/images/product/500/946/20170220F0000386.jpg',
+        prdt_code: '09839000088',
         prdt_brand: 'AESOP',
         prdt_name: 'PARSLEY SEED ANTI-OXIDANT SERUM 精华 100mL',
         prdt_list_price: '68',

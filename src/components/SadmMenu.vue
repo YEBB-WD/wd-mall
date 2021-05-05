@@ -37,6 +37,9 @@
           </v-btn>
         </div>
         <v-spacer></v-spacer>
+        <v-btn icon v-on:click="cart">
+          <v-icon>mdi-cart-outline</v-icon>
+        </v-btn>
         <v-btn icon v-on:click="logout" v-if="isLogin">
           <v-icon>mdi-export</v-icon>
         </v-btn>
@@ -109,6 +112,9 @@
         </div>
         <v-spacer></v-spacer>
         <v-spacer></v-spacer>
+        <v-btn icon v-on:click="cart">
+          <v-icon>mdi-cart-outline</v-icon>
+        </v-btn>
         <v-btn icon v-on:click="logout" v-if="isLogin">
           <v-icon>mdi-export</v-icon>
         </v-btn>
@@ -211,6 +217,9 @@ export default {
         this.$i18n.locale = 'zh'
       }
     },
+    cart() {
+
+    }
   },
   created() {
     this.checkLogin()
