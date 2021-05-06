@@ -30,21 +30,26 @@
       <v-row align="center">
         <v-col cols="1">
           <v-card flat>
-            <v-btn icon>
+            <v-btn icon @click="moveLeft" v-if="start > 0">
               <v-icon x-large>mdi-chevron-left</v-icon>
             </v-btn>
           </v-card>
         </v-col>
         <v-col cols="10">
           <v-card flat>
-            <v-col v-for="(prdt, i) in prdts" :key="index">
-              <product-preview :item="prdt"></product-preview>
-            </v-col>
+            <v-container fluid>
+              <v-row dense>
+                <v-col v-for="(prdt, i) in prdts" :key="prdt.prdt_code" v-if="(i >= start && i <= end)" cols="12" xs="3" sm="5" md="4" lg="3" xl="3">
+<!--                <v-col v-for="(prdt, i) in prdts" :key="prdt.prdt_code" v-if="(i >= start && i <= end)" cols="3" >-->
+                  <product-preview :item="prdt"></product-preview>
+                </v-col>
+              </v-row>
+            </v-container>
           </v-card>
         </v-col>
         <v-col cols="1">
           <v-card flat>
-            <v-btn icon>
+            <v-btn icon @click="moveRight" v-if="end < (prdts.length -1)">
               <v-icon x-large>mdi-chevron-right</v-icon>
             </v-btn>
           </v-card>
@@ -64,6 +69,8 @@ export default {
     ProductPreview
   },
   data() { return {
+    start: 0,
+    end: 3,
     prdts:[
       {
         prdt_img: 'https://image.ssgdfm.com/images/product/500/641/20190821N0001493.jpg',
@@ -188,6 +195,20 @@ export default {
     ],
 
   }},
+  methods: {
+    moveLeft() {
+      if(this.start > 0){
+        this.start -= 1
+        this.end -= 1
+      }
+    },
+    moveRight() {
+      if(this.end < this.prdts.length -1){
+        this.start += 1
+        this.end += 1
+      }
+    }
+  }
 }
 </script>
 

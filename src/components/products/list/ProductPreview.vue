@@ -1,6 +1,22 @@
 <template>
   <div align="center">
     <v-card max-width="300">
+<!--      <v-card>
+        <v-fab-transition>
+          <v-btn
+              color="pink"
+              dark
+              absolute
+              top
+              left
+              fab
+              small
+              text
+          >
+            <h1>a</h1>
+          </v-btn>
+        </v-fab-transition>
+      </v-card>-->
       <v-img
           :src="item.prdt_img"
           @click="clickItem(item)"
@@ -22,10 +38,19 @@
             </div>
           </v-col>
           <v-col cols="2">
-            <v-card>
+            <v-btn
+                color="pink"
+                dark
+                absolute
+                right
+                fab
+                small
+            >
+              <v-icon>mdi-cart-plus</v-icon>
+            </v-btn>
+<!--            <v-card>
               <v-fab-transition>
                 <v-btn
-                    v-show="!hidden"
                     color="pink"
                     dark
                     absolute
@@ -37,7 +62,7 @@
                   <v-icon>mdi-cart-plus</v-icon>
                 </v-btn>
               </v-fab-transition>
-            </v-card>
+            </v-card>-->
           </v-col>
       </v-row>
     </v-card>
@@ -77,13 +102,13 @@ export default {
       if(this.$i18n.locale == 'zh') return true;
       return false;
     },
-    clickItem(prdt) {
+    clickItem(item) {
       // this.$router.push('/prdtDetail')
       this.$router.push( { name: 'ProductDetail',
         params: {
-          item: prdt
+          prdt: item
         }})
-      console.log("Product view Detail : " + prdtCode);
+      console.log("Product view Detail : " + item);
     },
     numberWithCommas(x) {
       if(x==undefined) x = '0'

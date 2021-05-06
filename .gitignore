@@ -1,7 +1,7 @@
 .DS_Store
 node_modules
 static
-
+dist
 # local env files
 .env.local
 .env.*.local
@@ -24,3 +24,4 @@ yarn-error.log*
 *.sln
 *.sw?
 .idea
+/dist
