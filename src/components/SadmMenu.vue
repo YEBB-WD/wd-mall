@@ -37,7 +37,17 @@
           </v-btn>
         </div>
         <v-spacer></v-spacer>
-        <v-btn icon v-on:click="cart">
+        <v-badge
+            color="error"
+            :content="products"
+            overlap
+            v-if="products > 0"
+        >
+          <v-btn icon v-on:click="cart">
+            <v-icon>mdi-cart-outline</v-icon>
+          </v-btn>
+        </v-badge>
+        <v-btn icon v-on:click="cart" v-if="!products">
           <v-icon>mdi-cart-outline</v-icon>
         </v-btn>
         <v-btn icon v-on:click="logout" v-if="isLogin">
@@ -112,7 +122,17 @@
         </div>
         <v-spacer></v-spacer>
         <v-spacer></v-spacer>
-        <v-btn icon v-on:click="cart">
+        <v-badge
+            color="error"
+            :content="products"
+            overlap
+            v-if="products > 0"
+        >
+          <v-btn icon v-on:click="cart">
+            <v-icon>mdi-cart-outline</v-icon>
+          </v-btn>
+        </v-badge>
+        <v-btn icon v-on:click="cart" v-if="!products">
           <v-icon>mdi-cart-outline</v-icon>
         </v-btn>
         <v-btn icon v-on:click="logout" v-if="isLogin">
@@ -154,6 +174,7 @@
 // import Login from "@/components/Login";
 import Login from "@/components/Login2";
 import i18n from '@/i18n'
+import { mapActions, mapState } from 'vuex'
 
 export default {
   name: "SadmMenu",
@@ -223,7 +244,10 @@ export default {
   },
   created() {
     this.checkLogin()
-  }
+  },
+  computed: mapState({
+    products: state => state.shoppingCart.length
+  }),
 }
 </script>
 

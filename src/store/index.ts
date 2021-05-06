@@ -11,6 +11,7 @@ export const store = new Vuex.Store({
     role: '',
     name: '',
     session_hours: 12,
+    shoppingCart: [] as any,
   },
   mutations: {
     setUserId (state, payload) {
@@ -31,12 +32,13 @@ export const store = new Vuex.Store({
     removeAccessToken (state, context) {
       state.isAuth = false
       Vue.prototype.$axios.defaults.headers.common['Authorization'] = undefined
-    }
-    // checkSession() {
-    //   let saved = localStorage.getItem('saved')
-    //   if ( saved && (new Date().getTime() - saved < this.hours * 60 * 60 * 1000)) return true
-    //   return false
-    // }
+    },
+    ADD_PRODUCT: (state, product) => {
+      state.shoppingCart.push(product);
+    },
+    REMOVE_PRODUCT: (state, index) => {
+      state.shoppingCart.splice(index, 1);
+    },
   },
   actions: {
     // setUserAccount (context, accessToken, userId, role) {
@@ -47,7 +49,13 @@ export const store = new Vuex.Store({
       this.state.isAuth = false
       Vue.prototype.$axios.defaults.headers.common['Authorization'] = undefined
       context.commit('removeAccessToken')
-    }
+    },
+    addProduct: (context, product) => {
+      context.commit('ADD_PRODUCT', product);
+    },
+    removeProduct: (context, index) => {
+      context.commit('REMOVE_PRODUCT', index);
+    },
   },
   getters: {
     getAccessToken: function (state) {
@@ -58,7 +66,8 @@ export const store = new Vuex.Store({
     },
     getIsAuth: function (state) {
       return state.isAuth;
-    }
+    },
+    getProductsInCart: state => state.shoppingCart,
   },
   modules: {
   }

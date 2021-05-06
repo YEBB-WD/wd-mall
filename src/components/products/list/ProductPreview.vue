@@ -45,6 +45,7 @@
                 right
                 fab
                 small
+                @click="addProductToCart(item)"
             >
               <v-icon>mdi-cart-plus</v-icon>
             </v-btn>
@@ -71,6 +72,8 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
   name: "ProductPreview",
   props: {
@@ -98,6 +101,14 @@ export default {
 
   }},
   methods: {
+    ...mapActions([
+      'addProduct',
+    ]),
+
+    addProductToCart(product) {
+      this.addProduct(product);
+    },
+
     isLocalZH() {
       if(this.$i18n.locale == 'zh') return true;
       return false;
