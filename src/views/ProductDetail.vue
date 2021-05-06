@@ -95,7 +95,7 @@
           <br>
           <tr>
             <td width="200" align="right" colspan="3">
-              <v-btn color="blue" dark>
+              <v-btn color="blue" dark @click="addProductToCart(item)">
                 Add to cart<pre>&nbsp;</pre>
                 <v-icon>mdi-cart</v-icon>
               </v-btn>
@@ -133,6 +133,9 @@
 </template>
 
 <script>
+
+import { mapActions } from 'vuex'
+
 export default {
   name: "ProductDetail",
   data() { return {
@@ -216,6 +219,13 @@ export default {
     ],
   }},
   methods: {
+    ...mapActions([
+      'addProduct',
+    ]),
+
+    addProductToCart(product) {
+      this.addProduct(product);
+    },
     isLocalZH() {
       if(this.$i18n.locale == 'zh') return true;
       return false;
