@@ -1,6 +1,6 @@
 <template>
   <div align="center">
-    <v-card>
+    <v-card flat>
       <v-list three-line subheader>
         <v-subheader>Shopping Cart</v-subheader>
         <v-divider></v-divider>
@@ -31,6 +31,17 @@
         </template>
       </v-list>
       <v-divider></v-divider>
+      <v-divider></v-divider>
+      <v-card flat>
+        <div align="right">
+          <h5>Total Quantity: {{ numberWithCommas(totalQuantity()) }}</h5>
+          <h1 style="color: red">Total : $ {{ numberWithCommas(totalPrice()) }}</h1>
+          <h5 v-if="isLocalZH()" style="color: blue">( {{ $i18n.t('label.unit') }} {{ numberWithCommas(totalPrice_zh()) }} )</h5>
+          <h5 v-else style="color: blue">( {{ numberWithCommas(totalPrice_ko()) }} {{ $i18n.t('label.unit') }})</h5>
+        </div>
+        <br/>
+        <br/>
+      </v-card>
     </v-card>
   </div>
 </template>
@@ -51,6 +62,31 @@ export default {
 
     removePrdtFromCart(index) {
       this.removeProduct(index);
+    },
+    totalPrice() {
+      return this.products.reduce((current, next) =>
+          current + Number(next.prdt_sale_price), 0);
+    },
+    totalPrice_ko() {
+      return this.products.reduce((current, next) =>
+          current + Number(next.prdt_sale_price_ko), 0);
+    },
+    totalPrice_zh() {
+      return this.products.reduce((current, next) =>
+          current + Number(next.prdt_sale_price_zh), 0);
+    },
+    totalQuantity() {
+      return this.products.reduce((current, next) =>
+          current + Number(1), 0);
+    },
+    numberWithCommas(x) {
+      if(x==undefined) x = '0'
+      if(String(x).indexOf('.') > -1) x = Number(x).toFixed(2)
+      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    },
+    isLocalZH() {
+      if(this.$i18n.locale == 'zh') return true;
+      return false;
     },
 
   },

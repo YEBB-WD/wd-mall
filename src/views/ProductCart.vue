@@ -1,6 +1,6 @@
 <template>
   <div align="center">
-    <v-card max-width="96%">
+    <v-card max-width="98%" flat>
       <cart-item></cart-item>
 
     </v-card>
