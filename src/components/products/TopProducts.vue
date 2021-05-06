@@ -144,7 +144,7 @@ export default {
           prdt_category: '护肤/基础护肤/精华',
         }
       ],
-    };
+    }
   },
   methods: {
     //manadatory function called from cardTemplate

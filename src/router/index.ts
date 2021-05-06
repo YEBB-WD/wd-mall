@@ -8,9 +8,8 @@ import OrderCard from '@/views/OrderCard.vue'
 import OrderSvc from '@/views/OrderSvc.vue'
 import Login from '@/components/Login2.vue'
 import VisaApply from '@/views/VisaApply.vue'
-import ProductDetail from '@/components/products/list/ProductDetail.vue'
-import ProductPreview from "@/components/products/list/ProductPreview.vue";
-import ProductPreviewList from "@/components/products/list/ProductPreviewList.vue";
+import ProductDetail from '@/views/ProductDetail.vue'
+import ProductCart from '@/views/ProductCart.vue'
 
 Vue.use(VueRouter)
 
@@ -61,14 +60,9 @@ const routes: Array<RouteConfig> = [
     component: ProductDetail
   },
   {
-    path: '/prdtPrev',
-    name: 'ProductPreview',
-    component: ProductPreview
-  },
-  {
-    path: '/prdtPrevList',
-    name: 'ProductPreviewList',
-    component: ProductPreviewList
+    path: '/prdtCart',
+    name: 'ProductCart',
+    component: ProductCart
   },
   {
     path: '/about',

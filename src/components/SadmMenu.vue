@@ -43,11 +43,11 @@
             overlap
             v-if="products > 0"
         >
-          <v-btn icon v-on:click="cart">
+          <v-btn icon @click="$router.push('/prdtCart')">
             <v-icon>mdi-cart-outline</v-icon>
           </v-btn>
         </v-badge>
-        <v-btn icon v-on:click="cart" v-if="!products">
+        <v-btn icon v-if="!products">
           <v-icon>mdi-cart-outline</v-icon>
         </v-btn>
         <v-btn icon v-on:click="logout" v-if="isLogin">
@@ -128,11 +128,11 @@
             overlap
             v-if="products > 0"
         >
-          <v-btn icon v-on:click="cart">
+          <v-btn icon @click="$router.push('/prdtCart')">
             <v-icon>mdi-cart-outline</v-icon>
           </v-btn>
         </v-badge>
-        <v-btn icon v-on:click="cart" v-if="!products">
+        <v-btn icon v-if="!products">
           <v-icon>mdi-cart-outline</v-icon>
         </v-btn>
         <v-btn icon v-on:click="logout" v-if="isLogin">
@@ -238,9 +238,6 @@ export default {
         this.$i18n.locale = 'zh'
       }
     },
-    cart() {
-
-    }
   },
   created() {
     this.checkLogin()
