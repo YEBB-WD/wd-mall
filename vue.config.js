@@ -1,4 +1,7 @@
 module.exports = {
+  publicPath: '/wd-mall/',
+  outputDir: 'docs',
+
   "transpileDependencies": [
     "vuetify"
   ],
