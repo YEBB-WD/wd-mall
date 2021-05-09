@@ -22,7 +22,7 @@
           @click="clickItem(item)"
           contains>
       </v-img>
-      <v-row>
+      <v-row style="min-height: 80px">
         <v-col @click="clickItem(item)">
           <h3>{{ item.prdt_name }}</h3>
         </v-col>

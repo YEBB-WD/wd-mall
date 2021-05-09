@@ -42,6 +42,10 @@
         <br/>
         <br/>
       </v-card>
+      <v-btn color="blue" dark>
+        Check Out
+        <v-icon>mdi-credit-card-check</v-icon>
+      </v-btn>
     </v-card>
   </div>
 </template>
